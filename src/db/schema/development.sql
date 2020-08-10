@@ -16,18 +16,18 @@ VALUES
 
 
 INSERT INTO properties
-    (name, address, description, manager, issues, companyID)
+    (name, address, description, manager, issues, image, companyID)
 VALUES
     ('Home', '{
 "street":"56 oakley blvd",
 "city":"Toronto",
 "postal":"M1P 3P4"
-}', 'Bungalow converted into a triplex located in the heart of Scarbrough' , '{}', '[]', 1),
+}', 'Bungalow converted into a triplex located in the heart of Scarbrough' , '{}', '[]', 'https://www.newstreet.ca/property-images/E4185556-1.jpeg', 1),
     ('Hamilton Mutiplex', '{
 "street":"211 Garside ave south",
 "city":"Hamilton",
 "postal":"L8K 2W6"
-}', '11 unit multiplex in the Rosedale area of Hamilton', '{"name":"Jenny Perira", "phone":"905-223-1234", "email":"jperira@hotmail.com"}', '[{"title":"need new boiler", "status":"pending", "notes":["quotes range from 15-23k"] }]', 2);
+}', '11 unit multiplex in the Rosedale area of Hamilton', '{"name":"Jenny Perira", "phone":"905-223-1234", "email":"jperira@hotmail.com"}', '[{"title":"need new boiler", "status":"pending", "notes":["quotes range from 15-23k"] }]', 'https://photos.zolo.ca/2-229-bay-street-south-hamilton-h4069563-largephoto-1-processed-orig.jpg?2019-12-21+21%3A55%3A25', 2);
 
 
 INSERT INTO units

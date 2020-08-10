@@ -28,6 +28,7 @@ CREATE TABLE properties (
   address json,
   manager json,
   issues json,
+  image VARCHAR(255),
   companyID int references companies(company_id) not null
 
 );
