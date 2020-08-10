@@ -1,21 +1,33 @@
 
-INSERT INTO users (first_name, last_name, email, phone)
+INSERT INTO users
+    (first_name, last_name, email, phone)
 VALUES
-    ('Tommy', 'Lim', 'lim1017@hotmailcom', '416-453-8894');
+    ('Tommy', 'Lim', 'lim1017@hotmailcom', '416-453-8894'),
+    ('Le', 'ma', 'gandglm@hotmail.com', '416-993-9161');
 
 
-INSERT INTO companies (name, issues, userID)
-    VALUES 
-    ('Personal', '[]', 1);
+INSERT INTO companies
+    (name, issues, userID)
+VALUES
+    ('Personal', '[]', 1),
+    ('Lim TFX', '[]', 1),
+    ('G and G LM', '[]', 2);
+
+
 
 INSERT INTO properties
-    (name, address, manager, issues, companyID)
+    (name, address, description, manager, issues, companyID)
 VALUES
     ('Home', '{
 "street":"56 oakley blvd",
 "city":"Toronto",
 "postal":"M1P 3P4"
-}', '{}', '[]', 1);
+}', 'Bungalow converted into a triplex located in the heart of Scarbrough' , '{}', '[]', 1),
+    ('Hamilton Mutiplex', '{
+"street":"211 Garside ave south",
+"city":"Hamilton",
+"postal":"L8K 2W6"
+}', '11 unit multiplex in the Rosedale area of Hamilton', '{"name":"Jenny Perira", "phone":"905-223-1234", "email":"jperira@hotmail.com"}', '[{"title":"need new boiler", "status":"pending", "notes":["quotes range from 15-23k"] }]', 2);
 
 
 INSERT INTO units

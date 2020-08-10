@@ -1,14 +1,27 @@
 const router = require("express").Router();
 
-module.exports = db => {
-  
+module.exports = (db) => {
   router.get("/companies", (request, response) => {
-
     db.query(
       `
       SELECT *
       FROM companies
+    `
+    ).then(({ rows: results }) => {
+      // console.log(user);
+      response.json(results);
+    });
+  });
+
+  router.get("/companies/:userid", (request, response) => {
+    userid = request.params.userid;
+    db.query(
+      `
+      SELECT *
+      FROM companies
+      WHERE userID =$1
     `,
+      [userid]
     ).then(({ rows: results }) => {
       // console.log(user);
       response.json(results);
@@ -26,8 +39,6 @@ module.exports = db => {
   //             )
 
   // })
-  
-  
 
   return router;
 };

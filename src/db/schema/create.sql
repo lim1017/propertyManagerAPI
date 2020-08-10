@@ -24,6 +24,7 @@ CREATE TABLE companies (
 CREATE TABLE properties (
   property_id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255),
+  description VARCHAR (255),
   address json,
   manager json,
   issues json,
