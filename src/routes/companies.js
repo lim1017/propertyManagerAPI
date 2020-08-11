@@ -23,15 +23,12 @@ module.exports = (db) => {
     `,
       [userid]
     ).then(({ rows: results }) => {
-      // console.log(user);
-      console.log(results)
       response.json(results);
     });
   });
 
   router.post("/company/create", (request, response)=>{
 
-    console.log(request.body)
 
     const { companyName, email, address, city, country, postal, firstName, lastName, title, phone1, phone2, about, activeUser  } = request.body
 
@@ -47,8 +44,9 @@ module.exports = (db) => {
       VALUES ($1, $2, $3, $4, $5, $6, $7)
     `,
     [companyName, email, completeAddress, completeContact, about, issues, activeUser]
-    ).then(({ rows: results }) => {
-      response.json(results);
+    ).then((res) => {
+      console.log(res, 'res!!!!!!!!!!!!!!!!!!')
+      response.json(res.rows.results);
     });
 
   })

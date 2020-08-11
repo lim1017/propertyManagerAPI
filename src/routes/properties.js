@@ -15,7 +15,6 @@ module.exports = (db) => {
 
   router.get("/property/:ids", (request, response) => {
     ids = request.params.ids.split('&')
-    console.log(ids, 'property qurery ids')
     db.query(
       `
       SELECT *
