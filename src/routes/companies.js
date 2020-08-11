@@ -27,13 +27,28 @@ module.exports = (db) => {
     });
   });
 
+  router.get("/company/:ids", (request, response) => {
+    ids = request.params.ids.split('&')
+    console.log(request.params, 'asdf')
+    console.log(ids)
+    db.query(
+      `
+      SELECT *
+      FROM companies
+      WHERE userID =$1
+      and company_id = $2
+    `,
+      [ids[0],ids[1]]
+    ).then(({ rows: results }) => {
+      response.json(results);
+    });
+  });
+
   router.post("/company/create", (request, response)=>{
 
+    console.log(request.body)
 
-    const { companyName, email, address, city, country, postal, firstName, lastName, title, phone1, phone2, about, activeUser  } = request.body
-
-    let completeAddress={ address, city, country, postal}
-    let completeContact={ firstName, lastName, title, phone1, phone2}
+    const { name, email, address, contact, notes, userId  } = request.body
     let issues = {}
 
 
@@ -43,7 +58,7 @@ module.exports = (db) => {
     (name, email, address, contact, notes, issues, userID)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
     `,
-    [companyName, email, completeAddress, completeContact, about, issues, activeUser]
+    [name, email, address, contact, notes, issues, userId]
     ).then((res) => {
       console.log(res, 'res!!!!!!!!!!!!!!!!!!')
       response.json(res.rows.results);
