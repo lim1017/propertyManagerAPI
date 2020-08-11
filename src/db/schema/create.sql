@@ -15,7 +15,11 @@ CREATE TABLE users (
 
 CREATE TABLE companies (
   company_id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255),
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255),
+  address json,
+  contact json,
+  notes VARCHAR(255),
   issues json,
   userID int references users(user_id) not null
 

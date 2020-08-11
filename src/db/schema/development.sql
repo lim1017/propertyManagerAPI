@@ -7,11 +7,11 @@ VALUES
 
 
 INSERT INTO companies
-    (name, issues, userID)
+    (name, email, address, contact, notes, issues, userID)
 VALUES
-    ('Personal', '[]', 1),
-    ('Lim TFX', '[]', 1),
-    ('G and G LM', '[]', 2);
+    ('Personals', 'lim1017@hotmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'no notes', '[]', 1),
+   ('Lim TFX','limtfx@gmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'lots of notes', '[]', 1),    
+   ('G and G LM', 'gandglm@hotmail.com', '{}', '{}', '', '[]', 2);
 
 
 

@@ -24,21 +24,34 @@ module.exports = (db) => {
       [userid]
     ).then(({ rows: results }) => {
       // console.log(user);
+      console.log(results)
       response.json(results);
     });
   });
 
-  // router.post("/companies", (request, response)=>{
+  router.post("/company/create", (request, response)=>{
 
-  //   db.query(
-  //               `
-  //               INSERT INTO users (user_id, categories, favorites, name, email, age, gender, nickname)
-  //                 VALUES ($1::text, $2::json, $3::json, $4::text, $5::text, $6::integer, $7::text, $8::text)
-  //               `,
-  //               [user_id, categories, favorites, name, email, age, gender, nickname]
-  //             )
+    console.log(request.body)
 
-  // })
+    const { companyName, email, address, city, country, postal, firstName, lastName, title, phone1, phone2, about, activeUser  } = request.body
+
+    let completeAddress={ address, city, country, postal}
+    let completeContact={ firstName, lastName, title, phone1, phone2}
+    let issues = {}
+
+
+    db.query(
+    `
+    INSERT INTO companies
+    (name, email, address, contact, notes, issues, userID)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+    `,
+    [companyName, email, completeAddress, completeContact, about, issues, activeUser]
+    ).then(({ rows: results }) => {
+      response.json(results);
+    });
+
+  })
 
   return router;
 };
