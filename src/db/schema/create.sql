@@ -33,6 +33,8 @@ CREATE TABLE properties (
   manager json,
   issues json,
   image VARCHAR(255),
+  units VARCHAR(255),
+  type VARCHAR(255),
   companyID int references companies(company_id) not null
 
 );

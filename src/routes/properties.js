@@ -13,29 +13,34 @@ module.exports = (db) => {
     });
   });
 
-  router.post("/property/create", (request, response)=>{
-
+  router.post("/property/create", (request, response) => {
     console.log(request.body)
-
-    const { name, address, manager, description, activeCompanyId, image  } = request.body
-    let issues = {}
-
+    const {
+      name,
+      address,
+      manager,
+      description,
+      activeCompanyId,
+      image,
+      units,
+      type,
+    } = request.body;
+    let issues = {};
 
     db.query(
-    `
+      `
     INSERT INTO properties
-    (name, description, address, manager, issues, image, companyID)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
+    (name, description, address, manager, issues, image, units, type, companyID)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     `,
-    [name, description, address, manager , issues, image, activeCompanyId]
+      [name, description, address, manager, issues, image, units, type, activeCompanyId]
     ).then((res) => {
       response.json(res.rows.results);
     });
-
-  })
+  });
 
   router.get("/property/:ids", (request, response) => {
-    ids = request.params.ids.split('&')
+    ids = request.params.ids.split("&");
     db.query(
       `
       SELECT *
@@ -49,8 +54,6 @@ module.exports = (db) => {
       response.json(results);
     });
   });
-
-
 
   router.get("/properties/:companyID", (request, response) => {
     companyID = request.params.companyID;
