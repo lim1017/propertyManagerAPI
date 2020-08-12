@@ -70,8 +70,8 @@ module.exports = (db) => {
       contact = $4,
       notes = $5
 
-      WHERE userID =$6
-      and company_id = $7
+      WHERE userID =$7
+      and company_id = $6
  
     `,
     [name, email, address, contact, notes, companyid, userid]
