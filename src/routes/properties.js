@@ -13,6 +13,27 @@ module.exports = (db) => {
     });
   });
 
+  router.post("/property/create", (request, response)=>{
+
+    console.log(request.body)
+
+    const { name, address, manager, description, activeCompanyId, image  } = request.body
+    let issues = {}
+
+
+    db.query(
+    `
+    INSERT INTO properties
+    (name, description, address, manager, issues, image, companyID)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+    `,
+    [name, description, address, manager , issues, image, activeCompanyId]
+    ).then((res) => {
+      response.json(res.rows.results);
+    });
+
+  })
+
   router.get("/property/:ids", (request, response) => {
     ids = request.params.ids.split('&')
     db.query(
