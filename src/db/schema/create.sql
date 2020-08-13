@@ -41,8 +41,12 @@ CREATE TABLE properties (
 
 CREATE TABLE units (
   unit_id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255),
-  tenants json,
+  unit VARCHAR(255),
+  sqft VARCHAR(255),
+  rent VARCHAR(255),
+  bedroom VARCHAR(255),
+  tmi json,
+  notes VARCHAR(255),
   issues json,
   propertyID int references properties(property_id) not null
 
@@ -51,8 +55,8 @@ CREATE TABLE units (
 
 CREATE TABLE tenants (
   tenant_id SERIAL PRIMARY KEY NOT NULL,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),  address VARCHAR(255),
+  fname VARCHAR(255),
+  lname VARCHAR(255),  address VARCHAR(255),
   email VARCHAR(255),
   phone VARCHAR(20),
   gender VARCHAR(255),
