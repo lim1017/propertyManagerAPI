@@ -8,7 +8,6 @@ module.exports = (db) => {
       FROM companies
     `
     ).then(({ rows: results }) => {
-      // console.log(user);
       response.json(results);
     });
   });
@@ -31,8 +30,6 @@ module.exports = (db) => {
 
   router.post("/company/create", (request, response)=>{
 
-    console.log(request.body)
-
     const { name, email, address, contact, notes, userId  } = request.body
     let issues = {}
 
@@ -45,7 +42,6 @@ module.exports = (db) => {
     `,
     [name, email, address, contact, notes, issues, userId]
     ).then((res) => {
-      console.log(res, 'res!!!!!!!!!!!!!!!!!!')
       response.json(res.rows.results);
     });
 
@@ -55,8 +51,6 @@ module.exports = (db) => {
   router.patch("/company/edit/:companyid", (request, response)=>{
 
     const companyid = request.params.companyid
-    console.log(companyid)
-    console.log(request.body)
 
     const {name, email, address, contact, notes, userid} = request.body
 
@@ -76,7 +70,6 @@ module.exports = (db) => {
     `,
     [name, email, address, contact, notes, companyid, userid]
     ).then((res) => {
-      console.log(res, 'res!!!!!!!!!!!!!!!!!!')
       response.json(res.rows.results);
     });
 
@@ -84,8 +77,6 @@ module.exports = (db) => {
 
   router.get("/company/:ids", (request, response) => {
     ids = request.params.ids.split('&')
-    console.log(request.params, 'asdf')
-    console.log(ids)
     db.query(
       `
       SELECT *

@@ -8,13 +8,11 @@ module.exports = (db) => {
       FROM properties
     `
     ).then(({ rows: results }) => {
-      // console.log(user);
       response.json(results);
     });
   });
 
   router.post("/property/create", (request, response) => {
-    console.log(request.body)
     const {
       name,
       address,

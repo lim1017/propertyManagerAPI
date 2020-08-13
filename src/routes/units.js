@@ -10,7 +10,6 @@ module.exports = db => {
       FROM units
     `,
     ).then(({ rows: results }) => {
-      // console.log(user);
       response.json(results);
     });
   });
@@ -31,7 +30,6 @@ module.exports = db => {
     `,
     [unit, sqft, rent, bedroom, tmi, notes, issues, propertyId]
     ).then((res) => {
-      console.log(res, 'res!!!!!!!!!!!!!!!!!!')
       response.json(res.rows.results);
     });
 
@@ -41,8 +39,6 @@ module.exports = db => {
   router.patch("/unit/edit/:unitid", (request, response)=>{
 
     const unitid = request.params.unitid
-    console.log(unitid)
-    console.log(request.body)
 
     const { unit, rent, sqft, bedroom, tmi, notes, unitId  } = request.body
 
@@ -62,7 +58,6 @@ module.exports = db => {
     `,
     [unit, sqft, rent, bedroom, tmi, notes, unitId]
     ).then((res) => {
-      console.log(res, 'res!!!!!!!!!!!!!!!!!!')
       response.json(res.rows.results);
     });
 
@@ -82,13 +77,11 @@ module.exports = db => {
     `,
       [propertyId]
     ).then(({ rows: results }) => {
-      // console.log(user);
       response.json(results);
     });
   });
   
   router.get("/unit/:unitId", (request, response) => {
-    console.log('getting 1 unit')
     unitId = request.params.unitId;
 
     db.query(
@@ -99,7 +92,6 @@ module.exports = db => {
     `,
       [unitId]
     ).then(({ rows: results }) => {
-      // console.log(user);
       response.json(results);
     });
   });

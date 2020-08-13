@@ -35,11 +35,11 @@ INSERT INTO units
 VALUES
     ('Apt Z' , 1000, 2000, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "06/22/2020", "status": "pending"}]', 1 );
 
-INSERT INTO tenants
-    (fname, lname, email, phone, gender, unitID)
-VALUES
-    ('Nick', 'Tasse', 'nick@hotmail.com', '416-333-1234', 'Male', 1),
-    ('Meily', 'Moscco', 'Meily@hotmail.com', '416-333-4321', 'Female', 1);
+-- INSERT INTO tenants
+--     (fname, lname, email, phone, gender, unitID)
+-- VALUES
+--     ('Nick', 'Tasse', 'nick@hotmail.com', '416-333-1234', 'Male', 1),
+--     ('Meily', 'Moscco', 'Meily@hotmail.com', '416-333-4321', 'Female', 1);
 
 
 

@@ -55,11 +55,10 @@ CREATE TABLE units (
 
 CREATE TABLE tenants (
   tenant_id SERIAL PRIMARY KEY NOT NULL,
-  fname VARCHAR(255),
-  lname VARCHAR(255),  address VARCHAR(255),
-  email VARCHAR(255),
+  name VARCHAR(255),
   phone VARCHAR(20),
   gender VARCHAR(255),
+  notes VARCHAR(255),
   unitID int references units(unit_id) not null
 );
 
