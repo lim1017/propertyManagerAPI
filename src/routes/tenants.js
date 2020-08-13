@@ -90,6 +90,23 @@ module.exports = db => {
       response.json(results);
     });
   });
+
+  router.delete("/tenant/:tenantId", (request, response) => {
+    console.log('delting tenant')
+
+    const tenantId = request.params.tenantId;
+    db.query(
+      `
+      DELETE
+      FROM tenants
+      WHERE tenant_id = $1
+    `,
+      [tenantId]
+    ).then(({ rows: results }) => {
+      // console.log(user);
+      response.json(results);
+    });
+  });
   
 
   return router;
