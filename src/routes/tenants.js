@@ -92,7 +92,6 @@ module.exports = db => {
   });
 
   router.delete("/tenant/:tenantId", (request, response) => {
-    console.log('delting tenant')
 
     const tenantId = request.params.tenantId;
     db.query(

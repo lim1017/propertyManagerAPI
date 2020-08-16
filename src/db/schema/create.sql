@@ -21,7 +21,7 @@ CREATE TABLE companies (
   contact json,
   notes VARCHAR(255),
   issues json,
-  userID int references users(user_id) not null
+  userID int references users(user_id) ON DELETE CASCADE not null
 
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE properties (
   image VARCHAR(255),
   units VARCHAR(255),
   type VARCHAR(255),
-  companyID int references companies(company_id) not null
+  companyID int references companies(company_id) ON DELETE CASCADE not null
 
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE units (
   tmi json,
   notes VARCHAR(255),
   issues json,
-  propertyID int references properties(property_id) not null
+  propertyID int references properties(property_id) ON DELETE CASCADE not null 
 
 );
 
@@ -59,7 +59,7 @@ CREATE TABLE tenants (
   phone VARCHAR(20),
   gender VARCHAR(255),
   notes VARCHAR(255),
-  unitID int references units(unit_id) not null
+  unitID int references units(unit_id) ON DELETE CASCADE;
 );
 
 

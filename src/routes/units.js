@@ -96,7 +96,32 @@ module.exports = db => {
     });
   });
 
-  
+  router.delete("/unit/:unitId", (request, response) => {
+
+    const unitId = request.params.unitId;
+    return db.query(
+      `
+      DELETE
+      FROM tenants
+      WHERE unitID = $1
+
+    `,
+      [unitId]
+    ).then(x=>{
+      console.log('dont delting tenants')
+      db.query(
+        `
+        DELETE
+        FROM units
+        WHERE unit_id = $1
+        `,
+        [unitId]
+      )
+    }).then((res) => {
+      response.json('ok!');
+    });
+  });
+
 
 
 
