@@ -48,6 +48,7 @@ CREATE TABLE units (
   tmi json,
   notes VARCHAR(255),
   issues json,
+  occupied BOOLEAN,
   propertyID int references properties(property_id) ON DELETE CASCADE not null 
 
 );
@@ -59,7 +60,7 @@ CREATE TABLE tenants (
   phone VARCHAR(20),
   gender VARCHAR(255),
   notes VARCHAR(255),
-  unitID int references units(unit_id) ON DELETE CASCADE;
+  unitID int references units(unit_id) ON DELETE CASCADE
 );
 
 

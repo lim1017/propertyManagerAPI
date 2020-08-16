@@ -31,9 +31,9 @@ VALUES
 
 
 INSERT INTO units
-    (unit, sqft, rent, bedroom, tmi, notes, issues, propertyID)
+    (unit, sqft, rent, bedroom, tmi, notes, issues, occupied, propertyID)
 VALUES
-    ('Apt Z' , 1000, 2000, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "06/22/2020", "status": "pending"}]', 1 );
+    ('Apt Z' , 1000, 2000, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "06/22/2020", "status": "pending"}]', true, 1 );
 
 -- INSERT INTO tenants
 --     (fname, lname, email, phone, gender, unitID)

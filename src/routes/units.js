@@ -17,21 +17,21 @@ module.exports = db => {
 
   router.post("/unit/create", (request, response)=>{
 
-    const { unit, rent, sqft, bedroom, tmi, notes, propertyId  } = request.body
+    const { unit, rent, sqft, bedroom, tmi, notes, propertyId, occupied  } = request.body
     let issues = {}
 
-
+    console.log(request.body)
 
     db.query(
     `
     INSERT INTO units
-    (unit, sqft, rent, bedroom, tmi, notes, issues, propertyID)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    (unit, sqft, rent, bedroom, tmi, notes, issues, occupied, propertyID)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
     `,
-    [unit, sqft, rent, bedroom, tmi, notes, issues, propertyId]
+    [unit, sqft, rent, bedroom, tmi, notes, issues, occupied, propertyId]
     ).then((res) => {
       response.json(res.rows.results);
-    });
+    }).catch(err=> console.log(err))
 
   })
 
