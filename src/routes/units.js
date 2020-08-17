@@ -40,7 +40,7 @@ module.exports = db => {
 
     const unitid = request.params.unitid
 
-    const { unit, rent, sqft, bedroom, tmi, notes, unitId  } = request.body
+    const { unit, rent, sqft, bedroom, tmi, notes, unitId, occupied  } = request.body
 
     db.query(
     `
@@ -51,12 +51,13 @@ module.exports = db => {
       rent = $3,
       bedroom = $4,
       tmi = $5,
-      notes = $6
+      notes = $6,
+      occupied= $8
 
       WHERE unit_id = $7
  
     `,
-    [unit, sqft, rent, bedroom, tmi, notes, unitId]
+    [unit, sqft, rent, bedroom, tmi, notes, unitId, occupied]
     ).then((res) => {
       response.json(res.rows.results);
     });
