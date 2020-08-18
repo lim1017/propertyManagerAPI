@@ -37,6 +37,46 @@ module.exports = (db) => {
     });
   });
 
+  router.patch("/property/edit/:propertyid", (request, response)=>{
+
+    const propertyid = request.params.propertyid
+
+    const {
+      name,
+      address,
+      manager,
+      description,
+      companyId,
+      image,
+      units,
+      type,
+      property_id
+    } = request.body;
+    let issues = {};    
+    console.log(request.body, "editing tentant")
+
+    db.query(
+    `
+      UPDATE properties
+      SET
+      name = $1,
+      description = $2,
+      address = $3,
+      manager = $4,
+      image = $5,
+      units = $6,
+      type = $7
+
+      WHERE property_id = $8
+    `,
+    [name, description, address, manager, image, units, type, property_id]
+    ).then((res) => {
+      response.json(res.rows.results);
+    }).catch((err)=> console.log(err, 'eeeeeeeeeeeerrrrrrrrrrrrr'))
+
+  })
+
+
   router.get("/property/:ids", (request, response) => {
     ids = request.params.ids.split("&");
     db.query(
