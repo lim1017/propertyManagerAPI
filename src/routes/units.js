@@ -18,7 +18,7 @@ module.exports = db => {
   router.post("/unit/create", (request, response)=>{
 
     const { unit, rent, sqft, bedroom, tmi, notes, propertyId, occupied  } = request.body
-    let issues = {}
+    let issues = []
 
     console.log(request.body)
 
@@ -32,6 +32,31 @@ module.exports = db => {
     ).then((res) => {
       response.json(res.rows.results);
     }).catch(err=> console.log(err))
+
+  })
+
+  router.patch("/unit/editissues/:unitid", (request, response)=>{
+
+    const unitid = request.params.unitid
+
+    const { issues, unitId } = request.body
+
+    console.log(request.body, 'issues')
+    console.log(unitid, 'unitid...')
+
+    db.query(
+    `
+      UPDATE units
+      SET
+      issues = issues::jsonb || $1::jsonb
+
+      WHERE unit_id = $2
+ 
+    `,
+    [request.body, unitid]
+    ).then((res) => {
+      response.json(res.rows.results);
+    });
 
   })
 
