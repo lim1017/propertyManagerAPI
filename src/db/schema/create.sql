@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS companies CASCADE;
 DROP TABLE IF EXISTS properties CASCADE;
 DROP TABLE IF EXISTS units CASCADE;
 DROP TABLE IF EXISTS tenants CASCADE;
+DROP TABLE IF EXISTS issues CASCADE;
+
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY NOT NULL,
@@ -51,6 +53,14 @@ CREATE TABLE units (
   occupied BOOLEAN,
   propertyID int references properties(property_id) ON DELETE CASCADE not null 
 
+);
+
+CREATE TABLE issues (
+  issue_id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255),
+  status VARCHAR(20),
+  notes VARCHAR(255),
+  unitID int references units(unit_id) ON DELETE CASCADE
 );
 
 

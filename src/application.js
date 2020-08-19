@@ -15,6 +15,7 @@ const companies = require("./routes/companies");
 const properties = require("./routes/properties");
 const units = require("./routes/units");
 const tenants = require("./routes/tenants");
+const issues = require("./routes/issues");
 
 
 
@@ -46,6 +47,8 @@ module.exports = function application(
   app.use("/api", properties(db));
   app.use("/api", units(db));
   app.use("/api", tenants(db));
+  app.use("/api", issues(db));
+
 
 
 
