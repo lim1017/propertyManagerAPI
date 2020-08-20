@@ -1,18 +1,14 @@
 
 INSERT INTO users
-    (first_name, last_name, email, phone)
+    (first_name, last_name, email, phone, profile_img)
 VALUES
-    ('Tommy', 'Lim', 'lim1017@hotmailcom', '416-453-8894'),
-    ('Le', 'ma', 'gandglm@hotmail.com', '416-993-9161');
-
+    ('Tommy', 'Lim', 'lim1017@hotmailcom', '416-453-8894', 'https://dcist.com/wp-content/uploads/sites/3/2020/02/wilford_newsletter.jpg');
 
 INSERT INTO companies
     (name, email, address, contact, notes, issues, userID)
 VALUES
     ('Personals', 'lim1017@hotmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'no notes', '[]', 1),
-   ('Lim TFX','limtfx@gmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'lots of notes', '[]', 1),    
-   ('G and G LM', 'gandglm@hotmail.com', '{}', '{}', '', '[]', 2);
-
+   ('Lim TFX','limtfx@gmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'lots of notes', '[]', 1);
 
 
 INSERT INTO properties
