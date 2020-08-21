@@ -8,7 +8,7 @@ INSERT INTO companies
     (name, email, address, contact, notes, issues, userID)
 VALUES
     ('Personals', 'lim1017@hotmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'no notes', '[]', 1),
-   ('Lim TFX','limtfx@gmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'lots of notes', '[]', 1);
+    ('Lim TFX','limtfx@gmail.com', '{"address":"56 oakley blvd", "city":"toronto"}', '{"firstName":"Tom", "lastName":"Lim", "Title":"President"}', 'lots of notes', '[]', 1);
 
 
 INSERT INTO properties
@@ -19,6 +19,11 @@ VALUES
 "city":"Toronto",
 "postal":"M1P 3P4"
 }', 'Bungalow converted into a triplex located in the heart of Scarbrough' , '{}', '[]', 'https://www.newstreet.ca/property-images/E4185556-1.jpeg', 1),
+('Condo', '{
+"street":"151 dan leckie way",
+"city":"Toronto",
+"postal":"M1M 3R3"
+}', '2 Bedroom condo located downtown Toronto CityPlace' , '{}', '[]', 'https://img.huffingtonpost.com/asset/5cd70dc62100005800c96717.jpeg?ops=1778_1000', 1),
     ('Hamilton Mutiplex', '{
 "street":"211 Garside ave south",
 "city":"Hamilton",
@@ -29,7 +34,16 @@ VALUES
 INSERT INTO units
     (unit, sqft, rent, bedroom, tmi, notes, issues, occupied, propertyID)
 VALUES
-    ('Apt Z' , 1000, 2000, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "06/22/2020", "status": "pending"}]', true, 1 );
+    ('Apt A' , 1000, 1000, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "06/22/2020", "status": "complete"}]', true, 1 ),
+    ('Apt B' , 700, 900, 1 , '{}','no notes', '[{"title":"leaking sink", "date": "07/11/2019", "status": "pending"}]', true, 1 ),
+    ('808' , 800, 2300, 1 , '{}','no notes', '[{"title":"window not opening", "date": "06/22/2020", "status": "pending"}]', true, 2 ),
+    ('1' , 860, 1000, 1 , '{"hydro":"true"}',' ', '[]', true, 3 ),
+    ('2' , 925, 800, 1 , '{}',' ', '[]', false, 3 ),
+    ('3' , 700, 700, 0 , '{"hydro":"true"}',' ', '[]', true, 3 ),
+    ('4' , 970, 700, 1 , '{"hydro":"true"}',' ', '[]', true, 3 );
+
+
+    
 
 -- INSERT INTO tenants
 --     (fname, lname, email, phone, gender, unitID)
